@@ -529,3 +529,14 @@ input[type=password]:focus {
 /**
  * SECTION TITLE
 */
+.editor {
+  padding: 10px;
+  border: 1px;
+  border-style: solid;
+}
+.canvas {
+  widht: 800px;
+  height: 600px;
+  border: 1px;
+  border-style: solid;
+}
