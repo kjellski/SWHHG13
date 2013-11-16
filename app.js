@@ -13,7 +13,9 @@ var port = 3000;
 var exphbs = require('express3-handlebars');
 var hbs;
 
-var graphstore = require('./server/graphstore')
+var graphstore = require('./server/graphstore');
+var imageloader = require('./server/imageloader');
+
 
 // For gzip compression
 app.use(express.compress());
@@ -83,6 +85,15 @@ app.get('/editor', function(request, response, next) {
     response.render('editor');
 });
 
+app.get('/editor/images/:cat', function(request, response, next) {
+  response.json(200, imageloader.getImageUrlForCategory(request.params.cat));
+});
+
+
+app.get('/editor/categories', function(request, response, next) {
+   response.json(200, imageloader.getCategories());
+});
+
 function createClientResponse(graph) {
     return graph;
 }
@@ -93,4 +104,3 @@ function createClientResponse(graph) {
 app.listen(process.env.PORT || port);
 console.log('Express started on port ' + port);
 
-//graphstore.setGraph(1, { objects: [], background: ""} );

@@ -1,31 +1,35 @@
 var fs = require('fs');
+var dir='./assets/editor_images/';
+var dirForExport = '/editor_images/';
 
-imageloader.getImageUrlList = function(){
+exports.getImageUrlList = function(){
     return readFromFile();
 };
 
-imageloader.setGraph = function(graph){
-var dir='./tmpl/';
-var data={};
+exports.getCategories = function(){
+  var files = fs.readdirSync(dir);
+  var result = new Array();
 
-fs.readdir(dir,function(err,files){
-    if (err) throw err;
-    var c=0;
-    files.forEach(function(file){
-        c++;
-        fs.readFile(dir+file,'utf-8',function(err,html){
-            if (err) throw err;
-            data[file]=html;
-            if (0===--c) {
-                console.log(data);  //socket.emit('init', {data: data});
-            }
-        });
-    });
-});  
-};
+  for(var elem in files){
+    var stat = fs.statSync(dir+files[elem]);
+    if (stat && stat.isDirectory()) {
+      result.push(files[elem]); 
+    }
+  }
 
+  return result;
+}
 
+exports.getImageUrlForCategory = function(cat) {
+  var files = fs.readdirSync(dir+cat);
+  var result = new Array();
 
-imageloader.getImageUrlList = function(){
-    return readFromFile();
-};
+  for(var i in files) {
+    var stat = fs.statSync(dir+cat+"/"+files[i])
+    if(stat && stat.isFile()) {
+      result.push(dirForExport+files[i]);
+    }
+  }
+
+  return result;
+}
