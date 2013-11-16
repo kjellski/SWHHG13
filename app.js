@@ -19,6 +19,8 @@ var hbs;
 
 // For gzip compression
 app.use(express.compress());
+// logging for dev
+app.use(express.logger('dev'));
 
 /*
  * Config for Production and Development
@@ -64,7 +66,8 @@ app.get('/', function(request, response, next) {
 });
 
 app.get('/getGraph', function(req, res, next){
-    graphstore.getGraph(graphkey);
+    var graph = graphstore.getGraph(graphkey);
+    res.json(200,createClientResponse(graph));
 });
 
 app.post('/setGraph', function(req, res){
@@ -88,3 +91,4 @@ function createClientResponse(graph) {
 app.listen(process.env.PORT || port);
 console.log('Express started on port ' + port);
 
+//graphstore.setGraph(1, { objects: [], background: ""} );
