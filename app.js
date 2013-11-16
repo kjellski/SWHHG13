@@ -19,7 +19,7 @@ var graphstore = require('./server/graphstore')
 app.use(express.compress());
 // logging for dev
 app.use(express.logger('dev'));
-//app.use(express.bodyParser());
+app.use(express.bodyParser());
 
 /*
  * Config for Production and Development
@@ -84,9 +84,7 @@ app.get('/editor', function(request, response, next) {
 });
 
 function createClientResponse(graph) {
-    return {
-        graph: graph
-    };
+    return graph;
 }
 
 /*
