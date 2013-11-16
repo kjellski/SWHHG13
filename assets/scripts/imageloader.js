@@ -34,10 +34,11 @@ var ImageLoader = function() {
       var item_area = document.getElementById("item_area");
       var html = "";
       for(var i in urls) {
-        html += "<img src='"+urls[i]+"' class='draggable_image' draggable='true'><br />";
+        html += "<img src='"+urls[i]+"' draggable='true' width='100' height='100'><br />";
       }
 
       item_area.innerHTML = html;
+      Editor.updateDrapAndDropHandler();
     }
 
     function init() { console.log('ImageLoader initialized.'); }

@@ -45,7 +45,7 @@
                 </div>
             </nav>
         </header>
-        <br style="clear: both" />
+        
         <div class="content">
             {{{ body }}}
         </div>
@@ -55,7 +55,7 @@
         </footer>
 
         <!-- build:js(assets) scripts/scripts.js -->
-        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/modernizr/modernizr.js"></script>
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/fabric/dist/all.js"></script>
         <!-- endbuild -->
@@ -63,10 +63,10 @@
 
         <!-- KEEP THIS ORDER OF SCRIPT, THEY DEPEND ON EACH OTHER -->        
         <script src="scripts/store.js"></script>
-        <script src="scripts/imageloader.js"></script>
         <script src="scripts/main.js"></script>
         <script src="scripts/shape_provider.js"></script>
         <script src="scripts/editor.js"></script>
+        <script src="scripts/imageloader.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
         <script>

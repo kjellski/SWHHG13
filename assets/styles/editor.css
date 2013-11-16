@@ -1,4 +1,4 @@
-.item {
+#item_area {
   float: left;
   width: 15%;
   border: 1pt solid;
@@ -16,4 +16,32 @@
   width: 100px;
   height: 100px;
   padding: 1px;
+}
+
+#canvas-container {
+    position: relative;
+    width: 800px;
+    height: 600px;
+    box-shadow: 0 0 5px 1px black;
+    margin: 10px auto;
+    border: 5px solid transparent;
+}
+
+#canvas-container.over {
+    border: 5px dashed cyan;
+}
+
+#images img.img_dragging {
+    opacity: 0.4;
+}
+
+[draggable] {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+    /* Required to make elements draggable in old WebKit */
+    -khtml-user-drag: element;
+    -webkit-user-drag: element;
+    cursor: move;
 }
