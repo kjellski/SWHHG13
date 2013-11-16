@@ -1,40 +1,54 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Swhhg13</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(assets) styles/screen.css -->
-    <link rel="stylesheet" href="styles/bootstrap.css">
-    <link rel="stylesheet" href="styles/screen.css">
-    <link rel="stylesheet" href="styles/editor.css">
-    <!-- endbuild -->
-</head>
-<body>
-    <!--[if lt IE 10]>
-        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+    <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+    <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+    <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Swhhg13</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <!-- build:css(assets) styles/screen.css -->
+        <link rel="stylesheet" href="styles/bootstrap.css">
+        <link rel="stylesheet" href="styles/screen.css">
+        <link rel="stylesheet" href="styles/editor.css">
+        <!-- endbuild -->
+    </head>
+    <body>
+        <!--[if lt IE 10]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
 
-    <header>
-      <nav class="navbar navbar-default" role="navigation">
-      <div class="navbar-header">
-      </button>
-      <a class="navbar-brand" href="/">Digo</a>
-      <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="editor">Editor</a></li>
-        </ul>
-      </div>
-      </nav>
-    </header>
+        <header>
+            <nav class="navbar navbar-default pull-right" role="navigation">
+                <div class="navbar-header">
+                    </button>
+                    <ul class="nav navbar-nav">
+                        <li><a href="editor">Editor</a></li>
+                        <li><a href="/">You</a></li>
+                    </ul>
+                    <a class="navbar-brand" href="/">Digo</a>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default pull-left" role="navigation">
+                <div class="navbar-header">
+                    </button>
+                    <a class="navbar-brand" href="/">Categories</a>
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Scenerie</a></li>
+                        <li><a href="#">Persona</a></li>
+                        <li><a href="#">Items</a></li>
+                        <li><a href="#">Speech</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
 
-        {{{ body }}}
+        <div class="content">
+            {{{ body }}}
+        </div>
 
         <footer>
            Digo 
@@ -45,14 +59,14 @@
         <script src="bower_components/jquery/jquery.js"></script>
         <script src="bower_components/fabric/dist/all.js"></script>
         <!-- endbuild -->
-
         <script src="scripts/bootstrap.js"></script>
-        
-        <script src="scripts/editor.js"></script>
+
+        <!-- KEEP THIS ORDER OF SCRIPT, THEY DEPEND ON EACH OTHER -->        
         <script src="scripts/store.js"></script>
         <script src="scripts/imageloader.js"></script>
         <script src="scripts/main.js"></script>
-
+        <script src="scripts/shape_provider.js"></script>
+        <script src="scripts/editor.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. 
         <script>

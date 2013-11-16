@@ -22,11 +22,9 @@ var Store = function() {
             async: false,
             crossDomain: true
         }).done(function(data){
-            console.log('data: ', data);
             result = JSON.parse(data.graph);
-            console.log('result: ', result);
             canvas.loadFromJSON(result, canvas.renderAll.bind(canvas), function(o, object) {
-                fabric.log(o, object);
+                //fabric.log(o, object);
             });
         });
         return result;

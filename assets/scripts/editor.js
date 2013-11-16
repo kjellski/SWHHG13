@@ -1,11 +1,18 @@
-//var fs = require('fs');
+var Editor = function (canvas) {
 
-var Editor = function () {
+    var canvas = canvas;
+
+    function addNewScene(sceneFromBefore){
+        canvas.add(ShapeProvider.Scene());
+    }
+
 	function init() {
-		console.log('Editor initialized');
+		console.log('Editor initialized.');
 	}
+
     init();
     return {
+        addNewScene: addNewScene
     }
-}();
+}(canvas);
 
