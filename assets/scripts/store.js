@@ -1,4 +1,4 @@
-var store = function () {
+var Store = function () {
 
     function save(canvas) {
         $.ajax({
@@ -19,11 +19,10 @@ var store = function () {
             crossDomain: true
         }).done(function(data){
             console.log(data);
-            Renderer.drawHeatmap(data.data, data.minValue, data.maxValue);
         });
     }
 
-    function init() { console.log('Exporter initialized.'); }
+    function init() { console.log('Store initialized.'); }
     init();
     return {
         save: save

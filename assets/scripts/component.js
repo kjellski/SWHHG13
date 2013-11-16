@@ -1,4 +1,4 @@
-var component = function () {
+var Component = function () {
 
     var publicBecauseInReturn;
 
