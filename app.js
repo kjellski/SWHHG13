@@ -1,5 +1,9 @@
 'use strict';
 
+var graphstore = require('./server/graphstore')
+graphstore.init();
+var graphkey = 1;
+
 /*
  * Express Dependencies
  */
@@ -15,6 +19,8 @@ var hbs;
 
 // For gzip compression
 app.use(express.compress());
+// logging for dev
+app.use(express.logger('dev'));
 
 /*
  * Config for Production and Development
@@ -51,8 +57,6 @@ if (process.env.NODE_ENV === 'production') {
 // Set Handlebars
 app.set('view engine', 'handlebars');
 
-
-
 /*
  * Routes
  */
@@ -61,12 +65,30 @@ app.get('/', function(request, response, next) {
     response.render('index');
 });
 
+app.get('/getGraph', function(req, res, next){
+    var graph = graphstore.getGraph(graphkey);
+    res.json(200,createClientResponse(graph));
+});
+
+app.post('/setGraph', function(req, res){
+    var graph = graphstore.setGraph(graphkey, res.body);
+    res.json(200,createClientResponse(graph));
+});
+
 app.get('/editor', function(request, response, next) {
     response.render('editor');
 });
+
+function createClientResponse(graph) {
+    return {
+        graph: graph
+    };
+}
 
 /*
  * Start it up
  */
 app.listen(process.env.PORT || port);
 console.log('Express started on port ' + port);
+
+//graphstore.setGraph(1, { objects: [], background: ""} );

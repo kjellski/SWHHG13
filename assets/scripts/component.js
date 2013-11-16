@@ -1,4 +1,4 @@
-var component = function () {
+var Component = function () {
 
     var publicBecauseInReturn;
 
@@ -8,6 +8,6 @@ var component = function () {
 
     init();
     return {
-        publicVar: publicBecauseInReturn
+        //publicVar: publicBecauseInReturn
     }
 }();
