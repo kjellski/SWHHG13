@@ -536,12 +536,11 @@ input[type=password]:focus {
 .editor {
   padding: 10px;
   border: 1px;
-  border-style: solid;
+  border-style: 3px solid;
 }
 
 .canvas {
   widht: 800px;
   height: 600px;
-  border: 1px;
-  border-style: solid;
+  border-style: 10px solid;
 }

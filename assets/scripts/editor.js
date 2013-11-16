@@ -11,7 +11,6 @@ var Editor = function (canvas) {
 		console.log('Editor initialized.');
 	}
 
-
     function updateDrapAndDropHandler(){
         function handleDragStart(e) {
             [].forEach.call(images, function (img) {
