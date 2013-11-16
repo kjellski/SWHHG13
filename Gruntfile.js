@@ -24,10 +24,6 @@ module.exports = function (grunt) {
                     'assets/styles/**/*.css',
                 ],
             },
-            sass: {
-                files: ['assets/styles/**/*.scss'],
-                tasks: ['sass:dev']
-            },
             images: {
                 files: [
                     'assets/images/**/*.{png,jpg,jpeg,webp}'
@@ -68,26 +64,6 @@ module.exports = function (grunt) {
                 '!assets/scripts/vendor/*',
                 'test/spec/**/*.js'
             ]
-        },
-
-        // Sass Config
-        sass: {
-            options: {
-                cacheLocation: '.tmp/.sass-cache'
-            },
-            dev: {
-                options: {
-                    style: 'expanded',
-                    lineComments: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'assets/styles/sass',
-                    dest: 'assets/styles',
-                    src: ['screen.scss'],
-                    ext: '.css'
-                }]
-            }
         },
 
         // Express Config
@@ -254,7 +230,6 @@ module.exports = function (grunt) {
     // Register Tasks
     // Workon
     grunt.registerTask('workon', 'Start working on this project.', [
-        'sass:dev',
         'express:dev',
         'open:site',
         'open:editor',
