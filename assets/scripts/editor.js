@@ -43,6 +43,7 @@ var Editor = function (canvas) {
         function handleDrop(e) {
             // this / e.target is current target element.
 
+            if(e.preventDefault) { e.preventDefault(); }
             if (e.stopPropagation) {
                 e.stopPropagation(); // stops the browser from redirecting.
             }

@@ -532,15 +532,3 @@ input[type=password]:focus {
 .content {
   padding-top: 60px;
 }
-
-.editor {
-  padding: 10px;
-  border: 1px;
-  border-style: 3px solid;
-}
-
-.canvas {
-  widht: 800px;
-  height: 600px;
-  border-style: 10px solid;
-}

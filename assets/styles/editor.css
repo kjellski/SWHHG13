@@ -9,7 +9,6 @@
 .editor{
   float: right;
   width: 80%;
-  border: 1px solid;
 }
 
 .draggable_image{
@@ -24,11 +23,9 @@
     height: 600px;
     box-shadow: 0 0 5px 1px black;
     margin: 10px auto;
-    border: 5px solid transparent;
 }
 
 #canvas-container.over {
-    border: 5px dashed cyan;
 }
 
 #images img.img_dragging {
