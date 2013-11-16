@@ -27,9 +27,13 @@ exports.getImageUrlForCategory = function(cat) {
   for(var i in files) {
     var stat = fs.statSync(dir+cat+"/"+files[i])
     if(stat && stat.isFile()) {
-      result.push(dirForExport+files[i]);
+      if(files[i].charAt(0) != '.'){
+        result.push(dirForExport+cat+"/"+files[i]);
+      }
     }
   }
 
   return result;
 }
+
+

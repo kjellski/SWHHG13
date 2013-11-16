@@ -11,3 +11,9 @@
   width: 80%;
   border: 1px solid;
 }
+
+.draggable_image{
+  width: 100px;
+  height: 100px;
+  padding: 1px;
+}
