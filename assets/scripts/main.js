@@ -14,4 +14,4 @@ var rect = new fabric.Rect({
 // "add" rectangle onto canvas
 canvas.add(rect);
 
-console.log(component.publicVar);
+//console.log(component.publicVar);

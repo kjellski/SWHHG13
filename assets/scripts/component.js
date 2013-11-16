@@ -8,6 +8,6 @@ var component = function () {
 
     init();
     return {
-        publicVar: publicBecauseInReturn
+        //publicVar: publicBecauseInReturn
     }
 }();
