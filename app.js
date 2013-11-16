@@ -1,9 +1,5 @@
 'use strict';
 
-var graphstore = require('./server/graphstore')
-graphstore.init();
-var graphkey = 1;
-
 /*
  * Express Dependencies
  */
@@ -17,10 +13,13 @@ var port = 3000;
 var exphbs = require('express3-handlebars');
 var hbs;
 
+var graphstore = require('./server/graphstore')
+
 // For gzip compression
 app.use(express.compress());
 // logging for dev
 app.use(express.logger('dev'));
+//app.use(express.bodyParser());
 
 /*
  * Config for Production and Development
@@ -66,13 +65,18 @@ app.get('/', function(request, response, next) {
 });
 
 app.get('/getGraph', function(req, res, next){
-    var graph = graphstore.getGraph(graphkey);
-    res.json(200,createClientResponse(graph));
+    var graph = graphstore.getGraph();
+    var result = createClientResponse(graph);
+    console.log('/getGraph: ', result)
+    res.json(200, result);
 });
 
 app.post('/setGraph', function(req, res){
-    var graph = graphstore.setGraph(graphkey, res.body);
-    res.json(200,createClientResponse(graph));
+    console.log('/setGraph(req.body): ', req.body)
+    var graph = graphstore.setGraph(req.body);
+    var result = createClientResponse(graph);
+    console.log('/setGraph(result): ', result)
+    res.json(200, result);
 });
 
 app.get('/editor', function(request, response, next) {
