@@ -1,13 +1,13 @@
 var Store = function() {
 
     function save(canvas) {
-        var payload = canvas.toJSON();
+        var payload = JSON.stringify(canvas.toJSON());
         console.log(payload);
         $.ajax({
             url:'/setGraph',
             dataType: "json",
             type: 'POST', 
-            data: payload })
+            data: { graph: payload } })
         .done(function(data){
             console.log('saved graph on server', data);
             return data;
@@ -22,7 +22,8 @@ var Store = function() {
             async: false,
             crossDomain: true
         }).done(function(data){
-            result = data.graph;
+            console.log('data: ', data);
+            result = JSON.parse(data.graph);
             console.log('result: ', result);
             canvas.loadFromJSON(result, canvas.renderAll.bind(canvas), function(o, object) {
                 fabric.log(o, object);
