@@ -78,18 +78,6 @@ module.exports = function (grunt) {
             }
         },
 
-        // Open Config
-        open: {
-            site: {
-                path: 'http://localhost:3000',
-                app: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
-            },
-            editor: {
-                path: './',
-                app: 'C:\\Program Files\\Sublime Text 2\\sublime_text.exe'
-            },
-        },
-
         // Rev Config
         rev: {
             dist: {
@@ -231,8 +219,6 @@ module.exports = function (grunt) {
     // Workon
     grunt.registerTask('workon', 'Start working on this project.', [
         'express:dev',
-        'open:site',
-        'open:editor',
         'watch'
     ]);
 
