@@ -61,6 +61,9 @@ app.get('/', function(request, response, next) {
     response.render('index');
 });
 
+app.get('/editor', function(request, response, next) {
+    response.render('editor');
+});
 
 /*
  * Start it up

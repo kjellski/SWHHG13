@@ -3,3 +3,4 @@ node_modules
 .sass-cache
 app/bower_components
 assets/bower_components
+*.swp
