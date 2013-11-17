@@ -16,7 +16,6 @@ var hbs;
 var graphstore = require('./server/graphstore');
 var imageloader = require('./server/imageloader');
 
-
 // For gzip compression
 app.use(express.compress());
 // logging for dev
@@ -26,7 +25,8 @@ app.use(express.bodyParser());
 /*
  * Config for Production and Development
  */
-if (process.env.NODE_ENV === 'production') {
+/*if (process.env.NODE_ENV === 'production') {
+    console.log('ENVIRONMENT: PRODUCTION');
     // Set the default layout and locate layouts and partials
     app.engine('handlebars', exphbs({
         defaultLayout: 'main',
@@ -41,6 +41,9 @@ if (process.env.NODE_ENV === 'production') {
     app.use(express.static(__dirname + '/dist/assets'));
 
 } else {
+*/
+    console.log('ENVIRONMENT: DEVELOPMENT');
+
     app.engine('handlebars', exphbs({
         // Default Layout and locate layouts and partials
         defaultLayout: 'main',
@@ -53,7 +56,7 @@ if (process.env.NODE_ENV === 'production') {
     
     // Locate the assets
     app.use(express.static(__dirname + '/assets'));
-}
+/*}*/
 
 // Set Handlebars
 app.set('view engine', 'handlebars');
