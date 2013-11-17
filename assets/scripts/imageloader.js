@@ -28,6 +28,21 @@ var ImageLoader = function() {
         
         return result;
     }
+      
+    function loadThumbnailFor(scene){
+        var result;
+        $.ajax({
+            url:'/getThumbnail/'+scene,
+            type: 'GET',
+            async: false,
+            crossDomain: true
+        }).done(function(data){
+            //console.log('data: ', data);
+            result = data;
+            });
+        
+        return result;
+    }
 
     function generateImageHTMLViewFor(category){
       $(".navbar-default .navbar-nav > li > a").parent().removeClass('active');

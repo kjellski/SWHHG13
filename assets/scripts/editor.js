@@ -3,6 +3,20 @@ var Editor = function () {
     var canvas;
     var canvasEventHandlerAdded = false;
 
+  function loadThumbnailFor(scene){
+        var result;
+        $.ajax({
+            url:'/getThumbnail/'+scene,     
+            type: 'GET',     
+            async: false,
+            crossDomain: true  
+        }).done(function(data){
+            //console.log('data: ', data);
+            result = data;
+            });
+        
+        return result;
+    }
     function createNewCanvas(height, width) {
       height = typeof height !== 'undefined' ? height : 600;
       width = typeof width !== 'undefined' ? width : 800;
@@ -36,13 +50,19 @@ var Editor = function () {
 
         var output = "";
         for(var i in names) {
-          output += "<a href='javascript:Editor.loadCanvasByName(\""+names[i]+"\")'>"+names[i]+"</a>";
+          var thumbnail = loadThumbnailFor(names[i]);
+          var embed = "<embed src='"+thumbnail+"' type='image/svg+xml' width='80px' height='60' /> ";
+          output += "<a href='javascript:Editor.loadCanvasByName(\""+names[i]+"\")'>"+embed+"</a>";
         }
 
         html.innerHTML = output;
 
         loadCanvasByName('Default Scene');
     }
+
+
+
+
 
     function saveCanvas(){
       var title = document.getElementById("canvasTitle").value;
@@ -69,6 +89,8 @@ var Editor = function () {
             this.classList.add('img_dragging');
             console.log('dragging this: ', e);
         }
+
+
 
         function handleDragOver(e) {
             if (e.preventDefault) {
