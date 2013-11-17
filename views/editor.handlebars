@@ -53,3 +53,13 @@
         </div>
     
 </div>
+
+<script type="text/javascript">
+document.onkeypress = function (e) { 
+  e = e || window.event; 
+  var charCode = e.charCode || e.keyCode; 
+    if(charCode == 46) {
+      Editor.deleteActiveElement();
+    }
+  }
+</script>

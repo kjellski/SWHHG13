@@ -17,6 +17,12 @@ var Editor = function () {
         
         return result;
     }
+
+
+    function deleteActiveElement(){
+        canvas.remove(canvas.getActiveObject());
+    }
+
     function createNewCanvas(height, width) {
       height = typeof height !== 'undefined' ? height : 600;
       width = typeof width !== 'undefined' ? width : 800;
@@ -184,6 +190,7 @@ var Editor = function () {
         saveCanvas: saveCanvas,
         renderSceneNames: renderSceneNames,
         updateDrapAndDropHandler: updateDrapAndDropHandler,
+        deleteActiveElement: deleteActiveElement,
         canvas: canvas
     }
 }();
