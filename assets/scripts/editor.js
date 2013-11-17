@@ -16,7 +16,7 @@ var Editor = function () {
       }
       else 
       {
-        canvas.loadFromJSON({ objects: [], backgrounds: "" }, canvas.renderAll.bind(canvas), function(o, object) {
+        canvas.loadFromJSON(JSON.parse('{"objects":[],"background":""}'), canvas.renderAll.bind(canvas), function(o, object) {
             console.log('rebound.');
         });
       }
