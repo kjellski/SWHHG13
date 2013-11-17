@@ -3,8 +3,14 @@
     </div>
 
     <div class="editor">
+        <button type="button" class="btn btn-default" onClick="javascript:Editor.createNewCanvas()">Clear</button>
+        <input type="text" name="canvasTitle" id ="canvasTitle" value ="Default Scene" />
+        <button type="button" class="btn btn-default" onClick="javascript:Editor.saveCanvas()">Save</button>
         <div id="canvas-container">
             <canvas id="canvas" class="editor_canvas"></canvas>
+        </div>
+        <div id="savedScenes">
+
         </div>
     </div>
 </div>

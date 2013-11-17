@@ -66,17 +66,23 @@ app.get('/', function(request, response, next) {
     response.render('index');
 });
 
-app.get('/getGraph', function(req, res, next){
-    var graph = graphstore.getGraph();
-    var result = createClientResponse(graph);
+app.get('/getGraph/:name', function(req, res, next){
+    console.log("server in getGraph for: ", req.params.name);
+    var graph = graphstore.getGraph(req.params.name);
+    var result = graph;
     console.log('/getGraph: ', result)
     res.json(200, result);
 });
 
+app.get('/getGraphNames', function(req, res, next) {
+  var names = graphstore.getAllGraphNames();
+  res.json(200, names);
+      });
+
 app.post('/setGraph', function(req, res){
     console.log('/setGraph(req.body): ', req.body)
     var graph = graphstore.setGraph(req.body);
-    var result = createClientResponse(graph);
+    var result = graph;
     console.log('/setGraph(result): ', result)
     res.json(200, result);
 });
@@ -93,10 +99,6 @@ app.get('/editor/images/:cat', function(request, response, next) {
 app.get('/editor/categories', function(request, response, next) {
    response.json(200, imageloader.getCategories());
 });
-
-function createClientResponse(graph) {
-    return graph;
-}
 
 /*
  * Start it up
