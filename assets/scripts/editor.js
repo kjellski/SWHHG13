@@ -4,12 +4,48 @@ var Editor = function (canvas) {
     var canvas = canvas;
     var canvasEventHandlerAdded = false;
 
+    function createNewCanvas(height, width) {
+      height = typeof height !== 'undefined' ? height : 600;
+      width = typeof width !== 'undefined' ? width : 800;
+      canvas = new fabric.Canvas('canvas');
+      canvas.setHeight(height);
+      canvas.setWidth(width);
+    }
+
+    function loadCanvasByName(name) {
+      var graph = Store.load(canvas, name);
+      console.log("got dat graph: ", graph);
+      if(graph) {
+        canvas.loadFromJSON(graph, canvas.renderAll.bind(canvas), function(o, object) {});
+      }
+    }
+
+    function renderSceneNames() {
+        var names = Store.getNames();
+        var html = document.getElementById('savedScenes');
+
+        var output = "";
+        for(var i in names) {
+          output += "<a href='javascript:Editor.loadCanvasByName(\""+names[i]+"\")'>"+names[i]+"</a>";
+        }
+
+        html.innerHTML = output;
+    }
+
+
+    function saveCanvas(){
+      var title = document.getElementById("canvasTitle").value;
+      Store.save(canvas, title);
+    }
+
     function addNewScene(sceneFromBefore){
         canvas.add(ShapeProvider.Scene());
     }
 
 	function init() {
-		console.log('Editor initialized.');
+          console.log('Editor initialized.');
+          createNewCanvas();
+          loadCanvasByName();
 	}
 
       
@@ -109,7 +145,12 @@ var Editor = function (canvas) {
     init();
     return {
         addNewScene: addNewScene,
+        createNewCanvas: createNewCanvas,
+        loadCanvasByName: loadCanvasByName,
+        saveCanvas: saveCanvas,
+        renderSceneNames: renderSceneNames,
         updateDrapAndDropHandler: updateDrapAndDropHandler
+
     }
 }(canvas);
 
