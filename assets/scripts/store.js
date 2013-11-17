@@ -7,7 +7,7 @@ var Store = function() {
             url:'/setGraph',
             dataType: "json",
             type: 'POST', 
-            data: {key: name, value: payload }})
+            data: {key: name, value: payload, xml: canvas.toSVG() }})
         .done(function(data){
             console.log('saved graph on server', data);
             return data;

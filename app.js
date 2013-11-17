@@ -77,11 +77,19 @@ app.get('/getGraph/:name', function(req, res, next){
 app.get('/getGraphNames', function(req, res, next) {
   var names = graphstore.getAllGraphNames();
   res.json(200, names);
-      });
+});
+
+app.get('/getThumbnail/:name', function(req, res, next) {
+  var path = graphstore.getThumbnail(req.params.name);
+  console.log("Generated Path for Thumbnail:", path);
+  if(path) { res.json(200, path); }
+  else { res.json(404, "Scene not Found"); }
+});
 
 app.post('/setGraph', function(req, res){
     console.log('/setGraph(req.body): ', req.body)
     var graph = graphstore.setGraph(req.body);
+    graphstore.saveSVG(req.body.key, req.body.xml);(req.body.key, req.body.xml);
     var result = graph;
     console.log('/setGraph(result): ', result)
     res.json(200, result);
