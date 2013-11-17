@@ -51,8 +51,9 @@ var Editor = function () {
         var output = "";
         for(var i in names) {
           var thumbnail = loadThumbnailFor(names[i]);
-          var embed = "<embed src='"+thumbnail+"' type='image/svg+xml' width='80px' height='60' /> ";
-          output += "<a href='javascript:Editor.loadCanvasByName(\""+names[i]+"\")'>"+embed+"</a>";
+          //var embed = "<img src='"+thumbnail+"' width='80px' height='60px'>";
+          output += "<a href='javascript:Editor.loadCanvasByName(\""+names[i]+"\")'>"+names[i]+"</a> &nbsp; &nbsp;";
+          //output += embed;
         }
 
         html.innerHTML = output;
@@ -67,6 +68,7 @@ var Editor = function () {
     function saveCanvas(){
       var title = document.getElementById("canvasTitle").value;
       Store.save(canvas, title);
+      renderSceneNames();
     }
 
     function addNewScene(sceneFromBefore){
