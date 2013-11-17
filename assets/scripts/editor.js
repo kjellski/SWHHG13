@@ -2,6 +2,7 @@
 var Editor = function (canvas) {
 
     var canvas = canvas;
+    var canvasEventHandlerAdded = false;
 
     function addNewScene(sceneFromBefore){
         canvas.add(ShapeProvider.Scene());
@@ -11,7 +12,10 @@ var Editor = function (canvas) {
 		console.log('Editor initialized.');
 	}
 
+      
     function updateDrapAndDropHandler(){
+
+ 
         function handleDragStart(e) {
             [].forEach.call(images, function (img) {
                 img.classList.remove('img_dragging');
@@ -74,20 +78,28 @@ var Editor = function (canvas) {
 
         if (Modernizr.draganddrop) {
             // Browser supports HTML5 DnD.
+            
+
+            //cleanup old event handlers
+            //cleanEventHandler();
 
             // Bind the event listeners for the image elements
+
             var images = document.querySelectorAll('#item_area img');
-            [].forEach.call(images, function (img) {
-                img.addEventListener('dragstart', handleDragStart, false);
-                img.addEventListener('dragend', handleDragEnd, false);
-                console.log(img);
-            });
+              [].forEach.call(images, function (img) {
+                  img.addEventListener('dragstart', handleDragStart, false);
+                  img.addEventListener('dragend', handleDragEnd, false);
+                  console.log(img);
+              });
             // Bind the event listeners for the canvas
-            var canvasContainer = document.getElementById('canvas-container');
-            canvasContainer.addEventListener('dragenter', handleDragEnter, false);
-            canvasContainer.addEventListener('dragover', handleDragOver, false);
-            canvasContainer.addEventListener('dragleave', handleDragLeave, false);
-            canvasContainer.addEventListener('drop', handleDrop, false);
+              if(!canvasEventHandlerAdded){
+                var canvasContainer = document.getElementById('canvas-container');
+                canvasContainer.addEventListener('dragenter', handleDragEnter, false);
+                canvasContainer.addEventListener('dragover', handleDragOver, false);
+                canvasContainer.addEventListener('dragleave', handleDragLeave, false);
+                canvasContainer.addEventListener('drop', handleDrop, false);
+                canvasEventHandlerAdded = true;
+              }
         } else {
             // Replace with a fallback to a library solution.
             alert("This browser doesn't support the HTML5 Drag and Drop API.");
