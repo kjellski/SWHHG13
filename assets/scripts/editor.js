@@ -32,7 +32,6 @@ var Editor = function (canvas) {
         html.innerHTML = output;
     }
 
-
     function saveCanvas(){
       var title = document.getElementById("canvasTitle").value;
       Store.save(canvas, title);
@@ -47,7 +46,6 @@ var Editor = function (canvas) {
           createNewCanvas();
           loadCanvasByName();
 	}
-
       
     function updateDrapAndDropHandler(){
 
@@ -125,7 +123,7 @@ var Editor = function (canvas) {
               [].forEach.call(images, function (img) {
                   img.addEventListener('dragstart', handleDragStart, false);
                   img.addEventListener('dragend', handleDragEnd, false);
-                  console.log(img);
+//                  console.log(img);
               });
             // Bind the event listeners for the canvas
               if(!canvasEventHandlerAdded){
