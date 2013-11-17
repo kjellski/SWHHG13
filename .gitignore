@@ -4,4 +4,3 @@ node_modules
 app/bower_components
 assets/bower_components
 *.swp
-dist
