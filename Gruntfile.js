@@ -24,10 +24,6 @@ module.exports = function (grunt) {
                     'assets/styles/**/*.css',
                 ],
             },
-            sass: {
-                files: ['assets/styles/**/*.scss'],
-                tasks: ['sass:dev']
-            },
             images: {
                 files: [
                     'assets/images/**/*.{png,jpg,jpeg,webp}'
@@ -70,26 +66,6 @@ module.exports = function (grunt) {
             ]
         },
 
-        // Sass Config
-        sass: {
-            options: {
-                cacheLocation: '.tmp/.sass-cache'
-            },
-            dev: {
-                options: {
-                    style: 'expanded',
-                    lineComments: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: 'assets/styles/sass',
-                    dest: 'assets/styles',
-                    src: ['screen.scss'],
-                    ext: '.css'
-                }]
-            }
-        },
-
         // Express Config
         express: {
             options: {
@@ -100,18 +76,6 @@ module.exports = function (grunt) {
                     script: 'app.js'
                 }
             }
-        },
-
-        // Open Config
-        open: {
-            site: {
-                path: 'http://localhost:3000',
-                app: 'C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe'
-            },
-            editor: {
-                path: './',
-                app: 'C:\\Program Files\\Sublime Text 2\\sublime_text.exe'
-            },
         },
 
         // Rev Config
@@ -254,11 +218,7 @@ module.exports = function (grunt) {
     // Register Tasks
     // Workon
     grunt.registerTask('workon', 'Start working on this project.', [
-        'jshint',
-        'sass:dev',
         'express:dev',
-        'open:site',
-        'open:editor',
         'watch'
     ]);
 
