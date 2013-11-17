@@ -7,7 +7,7 @@ var ImageLoader = function() {
             async: false,
             crossDomain: true
         }).done(function(data){
-            console.log('data: ', data);
+            //console.log('data: ', data);
             result = data;
             });
         
@@ -22,7 +22,7 @@ var ImageLoader = function() {
             async: false,
             crossDomain: true
         }).done(function(data){
-            console.log('data: ', data);
+            //console.log('data: ', data);
             result = data;
             });
         
@@ -39,6 +39,7 @@ var ImageLoader = function() {
 
       item_area.innerHTML = html;
       Editor.updateDrapAndDropHandler();
+      console.log("update event handler");
     }
 
     function init() { console.log('ImageLoader initialized.'); }
