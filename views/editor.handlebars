@@ -1,5 +1,6 @@
 <script type="text/javascript">
-$(".navbar-default .navbar-nav > li > a:contains('Editor')").parent().addClass('active')
+    $(".navbar-default .navbar-nav > li > a").parent().removeClass('active');
+    $(".navbar-default .navbar-nav > li > a:contains('Editor')").parent().addClass('active');
 </script>
 <div class="editor-content">
     <nav class="navbar navbar-default" role="navigation">
@@ -35,14 +36,19 @@ $(".navbar-default .navbar-nav > li > a:contains('Editor')").parent().addClass('
     </div>
 
     <div class="editor">
-        <button type="button" class="btn btn-default" onClick="javascript:Editor.createNewCanvas()">Clear</button>
-        <input type="text" name="canvasTitle" id ="canvasTitle" value ="Default Scene" />
-        <button type="button" class="btn btn-default" onClick="javascript:Editor.saveCanvas()">Save</button>
         <div id="canvas-container">
             <canvas id="canvas" class="editor_canvas"></canvas>
+        </div>
+    </div>
+
+    
+        <div class="controls"> 
+            <input type="text" name="canvasTitle" id ="canvasTitle" value ="Default Scene" />
+            <button type="button" class="btn btn-default" onClick="javascript:Editor.createNewCanvas()">Clear</button>
+            <button type="button" class="btn btn-default" onClick="javascript:Editor.saveCanvas()">Save</button>
         </div>
         <div id="savedScenes">
 
         </div>
-    </div>
+    
 </div>

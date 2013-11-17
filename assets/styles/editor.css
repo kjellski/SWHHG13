@@ -1,7 +1,7 @@
 .editor-content {
   box-shadow: 0 0 5px 1px black;  
   width: 53%;
-  min-height: 700px;
+  height: 750px;
   float: none;
   margin: 0 auto;
 }
@@ -17,7 +17,7 @@
 
 .editor{
   float: left;
-  border: 1px solid;
+#  border: 1px solid;
   width: 80%;
 }
 
@@ -33,6 +33,23 @@
 }
 
 #canvas-container.over {
+}
+
+.controls {
+  margin: 8px;
+  width: 20%;
+  float: left;
+}
+
+.controls > button {
+  margin: 5px;
+  padding-left: 5px;
+}
+
+.savedScenes {
+  position: relative;
+  width: 80%;
+  float: left;
 }
 
 #images img.img_dragging {

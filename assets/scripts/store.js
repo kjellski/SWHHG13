@@ -22,7 +22,7 @@ var Store = function() {
             async: false,
             crossDomain: true
         }).done(function(data){
-          console.log("My data", data);
+          //console.log("My data", data);
             if(!data){
               result = undefined;
             } else {

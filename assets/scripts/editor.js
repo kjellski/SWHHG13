@@ -1,20 +1,30 @@
+var Editor = function () {
 
-var Editor = function (canvas) {
-
-    var canvas = canvas;
+    var canvas;
     var canvasEventHandlerAdded = false;
 
     function createNewCanvas(height, width) {
       height = typeof height !== 'undefined' ? height : 600;
       width = typeof width !== 'undefined' ? width : 800;
-      canvas = new fabric.Canvas('canvas');
-      canvas.setHeight(height);
-      canvas.setWidth(width);
+      //console.log('creating canvas', canvas);
+
+      if (!canvas){
+        canvas = new fabric.Canvas('canvas');
+        canvas.setHeight(height);
+        canvas.setWidth(width);
+        //console.log('created.');
+      }
+      else 
+      {
+        canvas.loadFromJSON({}, canvas.renderAll.bind(canvas), function(o, object) {
+            console.log('rebound.');
+        });
+      }
     }
 
     function loadCanvasByName(name) {
       var graph = Store.load(canvas, name);
-      console.log("got dat graph: ", graph);
+      //console.log("got dat graph: ", graph);
       if(graph) {
         canvas.loadFromJSON(graph, canvas.renderAll.bind(canvas), function(o, object) {});
       }
@@ -30,6 +40,8 @@ var Editor = function (canvas) {
         }
 
         html.innerHTML = output;
+
+        loadCanvasByName('Default Scene');
     }
 
     function saveCanvas(){
@@ -147,8 +159,7 @@ var Editor = function (canvas) {
         loadCanvasByName: loadCanvasByName,
         saveCanvas: saveCanvas,
         renderSceneNames: renderSceneNames,
-        updateDrapAndDropHandler: updateDrapAndDropHandler
-
+        updateDrapAndDropHandler: updateDrapAndDropHandler,
+        canvas: canvas
     }
-}(canvas);
-
+}();
