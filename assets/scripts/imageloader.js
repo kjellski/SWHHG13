@@ -30,11 +30,13 @@ var ImageLoader = function() {
     }
 
     function generateImageHTMLViewFor(category){
+      $(".navbar-default .navbar-nav > li > a:contains('" + category + "')").parent().addClass('active')
+      
       var urls = this.loadImagesByCategory(category);
       var item_area = document.getElementById("item_area");
       var html = "";
       for(var i in urls) {
-        html += "<img src='"+urls[i]+"' draggable='true' width='100' height='100'><br />";
+        html += "<img src='"+urls[i]+"' draggable='true' width='180' height='180'><br />";
       }
 
       item_area.innerHTML = html;

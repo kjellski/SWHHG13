@@ -1,44 +1,51 @@
+.editor-content {
+  box-shadow: 0 0 5px 1px black;  
+  width: 53%;
+  min-height: 700px;
+  float: none;
+  margin: 0 auto;
+}
+
 #item_area {
   float: left;
-  width: 15%;
-  border: 1pt solid;
-  height: 80%;
-  min-height: 800px;
+  border: 1px solid;
+  width: 20%;
+  height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .editor{
-  float: right;
+  float: left;
+  border: 1px solid;
   width: 80%;
 }
 
 .draggable_image{
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   padding: 1px;
 }
 
 #canvas-container {
-    position: relative;
-    width: 800px;
-    height: 600px;
-    box-shadow: 0 0 5px 1px black;
-    margin: 10px auto;
+  position: relative;
+#  margin: 10px auto;
 }
 
 #canvas-container.over {
 }
 
 #images img.img_dragging {
-    opacity: 0.4;
+  opacity: 0.4;
 }
 
 [draggable] {
-    -moz-user-select: none;
-    -khtml-user-select: none;
-    -webkit-user-select: none;
-    user-select: none;
-    /* Required to make elements draggable in old WebKit */
-    -khtml-user-drag: element;
-    -webkit-user-drag: element;
-    cursor: move;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  /* Required to make elements draggable in old WebKit */
+  -khtml-user-drag: element;
+  -webkit-user-drag: element;
+  cursor: move;
 }

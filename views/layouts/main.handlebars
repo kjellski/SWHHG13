@@ -22,30 +22,24 @@
         <![endif]-->
 
         <header>
-            <nav class="navbar navbar-default pull-right" role="navigation">
+            <nav class="navbar navbar-default sky-blue" role="navigation">
                 <div class="navbar-header">
-                    </button>
+                    <a class="navbar-brand" href="/">Digo</a>
                     <ul class="nav navbar-nav">
                         <li><a href="editor">Editor</a></li>
                         <li><a href="/">You</a></li>
-                    </ul>
-                    <a class="navbar-brand" href="/">Digo</a>
-                </div>
-            </nav>
-            <nav class="navbar navbar-default pull-left" role="navigation">
-                <div class="navbar-header">
-                    </button>
-                    <a class="navbar-brand" href="/">Categories</a>
-                    <ul class="nav navbar-nav">
-                      <li><a href="javascript:ImageLoader.generateImageHTMLViewFor('backgrounds');">Scenerie</a></li>
-                        <li><a href="javascript:ImageLoader.generateImageHTMLViewFor('characters');">Persona</a></li>
-                        <li><a href="javascript:ImageLoader.generateImageHTMLViewFor('props');">Items</a></li>
-                        <li><a href="javascript:ImageLoader.generateImageHTMLViewFor('speechelements');">Speech</a></li>
                     </ul>
                 </div>
             </nav>
         </header>
         <br style="clear:both" />
+        
+        <!-- build:js(assets) scripts/scripts.js -->
+        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/fabric/dist/all.js"></script>
+        <!-- endbuild -->
+        <script src="scripts/bootstrap.js"></script>
         
         <div class="content">
             {{{ body }}}
@@ -54,13 +48,6 @@
         <footer>
            Digo 
         </footer>
-
-        <!-- build:js(assets) scripts/scripts.js -->
-        <script src="bower_components/modernizr/modernizr.js"></script>
-        <script src="bower_components/jquery/jquery.js"></script>
-        <script src="bower_components/fabric/dist/all.js"></script>
-        <!-- endbuild -->
-        <script src="scripts/bootstrap.js"></script>
 
         <!-- KEEP THIS ORDER OF SCRIPT, THEY DEPEND ON EACH OTHER -->        
         <script src="scripts/store.js"></script>
