@@ -6,9 +6,6 @@ This is the software project behind our [Startup Weekend Games](http://hamburg.s
 In order to hack in this, you need to install these on your machine:
 
 * node.js
-* ruby2
-* Sublime Text 2
-* Google Chrome
 
 If you're done installing these, go check out the project with GitHub for Windows or this on the command line:
 
@@ -16,6 +13,6 @@ If you're done installing these, go check out the project with GitHub for Window
 
 After that, open the folder you've checked it out into, and type this on the command line:
 
-    grunt workon
+    npm install && bower install && grunt workon
 
 
